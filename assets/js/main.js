@@ -30,7 +30,7 @@ function clima(latitud, longitud) {
         .done(function(response) {
             console.log(response);
             //currently = actualmente index.html
-            $('#climas').append('<img src="dist/img/'+response.currently.icon+'.png">'+'<br>'+'<span>La temperatura actual es: '+response.currently.temperature+'</span>' + '<br>'+'<span>La Humedad actual es: '+response.currently.humidity+'</span>' + '<br>'+'<span>Indice UV actual es: '+response.currently.uvIndex+'</span>' + '<br>'+'<span>La presión actual es: '+response.currently.pressure+'</span>' + '<br>'+'<a href=index2.html><button type="button" class="btn btn-default">Default</button></a>');
+            $('#climas').append('<img src="dist/img/'+response.daily.icon+'.png">'+'<br>'+'<span>La temperatura actual es: '+response.currently.temperature+'</span>' + '<br>'+'<span>La Humedad actual es: '+response.currently.humidity+'</span>' + '<br>'+'<span>Indice UV actual es: '+response.currently.uvIndex+'</span>' + '<br>'+'<span>La presión actual es: '+response.currently.pressure+'</span>' + '<br>'+'<a href=index2.html><button type="button" class="btn btn-default">Default</button></a>');
        
            // $('#semanal').append('<div>'+ response.daily.apparentTemperatureMin +'</div>');
 		response.daily.data.forEach(function(a){
