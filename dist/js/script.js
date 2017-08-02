@@ -12662,10 +12662,19 @@ function clima(latitud, longitud) {
         .done(function(response) {
             console.log(response);
             //currently = actualmente index.html
-            $('#climas').append('<span>La temperatura actual es: '+response.currently.temperature+'</span>' + '<br>'+'<span>La Humedad actual es: '+response.currently.humidity+'</span>' + '<br>'+'<span>Indice UV actual es: '+response.currently.uvIndex+'</span>' + '<br>'+'<span>La presión actual es: '+response.currently.pressure+'</span>' + '<br>'+'<a href=index2.html><button type="button" class="btn btn-default">Default</button></a>');
+            $('#climas').append('<img src="dist/img/'+response.currently.icon+'.png">'+'<br>'+'<span>La temperatura actual es: '+response.currently.temperature+'</span>' + '<br>'+'<span>La Humedad actual es: '+response.currently.humidity+'</span>' + '<br>'+'<span>Indice UV actual es: '+response.currently.uvIndex+'</span>' + '<br>'+'<span>La presión actual es: '+response.currently.pressure+'</span>' + '<br>'+'<a href=index2.html><button type="button" class="btn btn-default">Default</button></a>');
+       
+           // $('#semanal').append('<div>'+ response.daily.apparentTemperatureMin +'</div>');
+            //TEMPERATURA DE LA SEMANA
+       
+		response.daily.data.forEach(function(a){
+			//console.log(ele);
+			var max = a.apparentTemperatureMax
+			var min = a.apparentTemperatureMin
+			$("#semanal").append("<div class='row linea-dias'><div class='col-md-6 col-xs-6 text-left'><img src='dist/img/"+response.daily.icon+".png'><span>Dia</span></div><div class='col-md-6 col-xs-6 text-right'><p>"+max+"º"+" - "+min+"º"+"</p></div></div>");
 
-            //daily , diario // semanal index2.html
-            $('#semanal').append('<span>La temperatura actual es: '+response.currently.temperature+'</span>' + '<br>'+'<span>El viento actual es: '+response.currently.windSpeed+'</span>' + '<br>'+'<span>La Humedad actual es: '+response.currently.humidity+'</span>' + '<br>'+'<span>Indice UV actual es: '+response.currently.uvIndex+'</span>' + '<br>'+'<span>La presión actual es: '+response.currently.pressure+'</span>' + '<br>'+'<a href=index2.html><button type="button" class="btn btn-default">Default</button></a>');
+		});
+       //
         })
         .fail(function() {
             console.log('error')
@@ -12674,3 +12683,31 @@ function clima(latitud, longitud) {
             console.log('complete')
         });
 };
+
+
+
+/*
+    // API FLICKR
+
+$(function () {
+    $.ajax({
+        url: "https://api.flickr.com/services/rest/",
+        data: {
+            method: "flickr.photos.search",
+            api_key: "9f57617f1a694b2d02fd4d0474b6357e",
+            tags: "weather",
+            format: "json",
+            nojsoncallback: 1
+        },
+        success: function (response) {
+        console.log(response)
+            $.each(response.photos.photo, function (index, value) {
+                //console.log(value);
+              var url = 'https://farm' + value.farm + '.staticflickr.com/' + value.server + '/' + value.id + '_' + value.secret + '.jpg';
+              var img = $('<img>').attr({src: url});
+              $("body").append(img);
+            });
+        }
+    });
+})
+*/
