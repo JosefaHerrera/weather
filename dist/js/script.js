@@ -12655,7 +12655,7 @@ var funcionError = function(error){
 /*************************/
 function clima(latitud, longitud) {
     $.ajax({
-            url: 'https://api.darksky.net/forecast/e16a38db6186f1d2cbbf839bfac86e55/'+latitud+','+longitud+'?anguage=es?&units=auto',
+            url: 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/e16a38db6186f1d2cbbf839bfac86e55/'+latitud+','+longitud+'?anguage=es?&units=auto',
             type: 'GET',
             datatype: 'JSON',
         })
@@ -12686,28 +12686,7 @@ function clima(latitud, longitud) {
 
 
 
-/*
-    // API FLICKR
 
-$(function () {
-    $.ajax({
-        url: "https://api.flickr.com/services/rest/",
-        data: {
-            method: "flickr.photos.search",
-            api_key: "9f57617f1a694b2d02fd4d0474b6357e",
-            tags: "weather",
-            format: "json",
-            nojsoncallback: 1
-        },
-        success: function (response) {
-        console.log(response)
-            $.each(response.photos.photo, function (index, value) {
-                //console.log(value);
-              var url = 'https://farm' + value.farm + '.staticflickr.com/' + value.server + '/' + value.id + '_' + value.secret + '.jpg';
-              var img = $('<img>').attr({src: url});
-              $("body").append(img);
-            });
-        }
-    });
-})
-*/
+    // API FLICKR 955f29c6de9392981e26515842f04e7d
+
+

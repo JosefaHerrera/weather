@@ -1,3 +1,8 @@
+body{
+   margin: 0;
+   padding: 0;
+   overflow-x: hidden;
+}
 #climas{
    background-color: aliceblue;
    padding-bottom: 50px;
@@ -11,4 +16,8 @@
    p{
     padding-top: 71px;
 }
+   .linea-dias{
+      border-bottom: 2px solid black;
+      border-top: 2px solid black;
+   }
 }

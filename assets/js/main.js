@@ -33,10 +33,7 @@ function clima(latitud, longitud) {
             $('#climas').append('<img src="dist/img/'+response.currently.icon+'.png">'+'<br>'+'<span>La temperatura actual es: '+response.currently.temperature+'</span>' + '<br>'+'<span>La Humedad actual es: '+response.currently.humidity+'</span>' + '<br>'+'<span>Indice UV actual es: '+response.currently.uvIndex+'</span>' + '<br>'+'<span>La presión actual es: '+response.currently.pressure+'</span>' + '<br>'+'<a href=index2.html><button type="button" class="btn btn-default">Default</button></a>');
        
            // $('#semanal').append('<div>'+ response.daily.apparentTemperatureMin +'</div>');
-            //TEMPERATURA DE LA SEMANA
-       
 		response.daily.data.forEach(function(a){
-			//console.log(ele);
 			var max = a.apparentTemperatureMax
 			var min = a.apparentTemperatureMin
 			$("#semanal").append("<div class='row linea-dias'><div class='col-md-6 col-xs-6 text-left'><img src='dist/img/"+response.daily.icon+".png'><span>Dia</span></div><div class='col-md-6 col-xs-6 text-right'><p>"+max+"º"+" - "+min+"º"+"</p></div></div>");
@@ -51,8 +48,6 @@ function clima(latitud, longitud) {
             console.log('complete')
         });
 };
-
-
-
-
     // API FLICKR 955f29c6de9392981e26515842f04e7d
+
+
